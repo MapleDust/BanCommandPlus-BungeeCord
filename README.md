@@ -14,4 +14,4 @@
     - 例如：scoreboard player set * * 1|gamemode survival|gamemode creative|kill
 - 更新日志
   - v1.0
-    - 添加根据配置文件的指令来拦截指令
+    - 添加根据配置文件的指令来拦截子指令
