@@ -14,4 +14,4 @@ A Bungeecord plugin that blocks any command, or specific subcommands of a comman
     - For example：scoreboard player set * * 1|gamemode survival|gamemode creative|kill
 - Update Log
   - v1.0
-    - Adding instructions to intercept instructions based on the configuration file
+    - Adding the ability to intercept sub-instructions based on the instructions in the configuration file
