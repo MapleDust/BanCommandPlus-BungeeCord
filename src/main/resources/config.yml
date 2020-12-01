@@ -1,0 +1,8 @@
+#用"*"表示不限制，例如：
+#- scoreboard player set * * 1
+#- gamemode survival
+#- gamemode creative
+#- kill
+banned-command: 
+#可以自定义指令，留空默认"bancommand"
+main-command: 
