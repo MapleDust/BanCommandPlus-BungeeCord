@@ -21,8 +21,7 @@ public class LoadConfig {
      */
     public static Configuration loadConfig() {
         try {
-            LoadConfig.configuration = ConfigurationProvider.getProvider(YamlConfiguration.class)
-                    .load(new File("./plugins/BanCommandPlus/config.yml"));
+            LoadConfig.configuration = ConfigurationProvider.getProvider(YamlConfiguration.class).load(new File("./plugins/BanCommandPlus/config.yml"));
         } catch (IOException e) {
             e.printStackTrace();
         }
