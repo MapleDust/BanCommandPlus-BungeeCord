@@ -1,6 +1,7 @@
-package xyz.fcidd.bancommandplus.config;
+package xyz.fcidd.bancommandplus.handler;
 
 import net.md_5.bungee.config.Configuration;
+import xyz.fcidd.bancommandplus.config.LoadConfig;
 
 import java.io.*;
 import java.util.Collection;

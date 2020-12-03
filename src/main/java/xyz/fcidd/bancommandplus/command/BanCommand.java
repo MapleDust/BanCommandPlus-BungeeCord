@@ -6,8 +6,9 @@ import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.plugin.Command;
 import net.md_5.bungee.api.plugin.TabExecutor;
-import xyz.fcidd.bancommandplus.command.bancommand.BannedCommandList;
-import xyz.fcidd.bancommandplus.command.bancommand.CommandHandler;
+import xyz.fcidd.bancommandplus.BanCommandPlus;
+import xyz.fcidd.bancommandplus.list.BannedCommandList;
+import xyz.fcidd.bancommandplus.handler.CommandHandler;
 import xyz.fcidd.bancommandplus.config.LoadConfig;
 
 import java.util.LinkedList;
@@ -19,7 +20,7 @@ public class BanCommand extends Command implements TabExecutor {
         super(command());
     }
 
-    private static String command() {
+    public static String command() {
         LoadConfig loadConfig = new LoadConfig();
         // 获取配置文件中设置的主命令
         String command = loadConfig.getMainCommand();

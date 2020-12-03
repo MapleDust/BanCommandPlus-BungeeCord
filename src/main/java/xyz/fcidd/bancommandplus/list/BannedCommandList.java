@@ -1,4 +1,4 @@
-package xyz.fcidd.bancommandplus.command.bancommand;
+package xyz.fcidd.bancommandplus.list;
 
 import java.util.List;
 
