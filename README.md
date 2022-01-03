@@ -35,6 +35,8 @@
   - 被ban指令列表：bancommandplus.command.bancommand.list
   - 重载本插件：bancommandplus.command.bancommand.reload
 - 更新日志
+  - v1.2.0
+    - 添加子命令`remove`Tab列表推荐被Ban指令
   - v1.1.0
     - 添加使用指令来查看、删除或添加被Ban的指令
     - 改用yml文件来作为配置文件

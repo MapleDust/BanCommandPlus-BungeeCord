@@ -6,10 +6,9 @@ import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.plugin.Command;
 import net.md_5.bungee.api.plugin.TabExecutor;
-import xyz.fcidd.bancommandplus.BanCommandPlus;
-import xyz.fcidd.bancommandplus.list.BannedCommandList;
-import xyz.fcidd.bancommandplus.handler.CommandHandler;
 import xyz.fcidd.bancommandplus.config.LoadConfig;
+import xyz.fcidd.bancommandplus.handler.CommandHandler;
+import xyz.fcidd.bancommandplus.list.BannedCommandList;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -34,11 +33,20 @@ public class BanCommand extends Command implements TabExecutor {
         // 在玩家输入内容长度为1时
         if (args.length == 0) {
             list.add(command());
+        //当玩家输入的长度为1时
         } else if (args.length == 1) {
+            //将子指令推荐给玩家
             list.add("add");
             list.add("remove");
             list.add("reload");
             list.add("list");
+        //当玩家输入的指令的长度为2时，并且是remove时
+        } else if (args.length == 2 && args[0].equals("remove")) {
+            //获取被Ban指令的列表
+            LoadConfig loadConfig = new LoadConfig();
+            List<?> banCommands = loadConfig.getBanCommand();
+            //将被ban指令的列表推荐给玩家
+            banCommands.forEach(banCommand -> list.add((String) banCommand));
         }
         // 返回list即向玩家发送
         return list;
@@ -47,6 +55,7 @@ public class BanCommand extends Command implements TabExecutor {
     @SneakyThrows
     @Override
     public void execute(CommandSender sender, String[] args) {
+        //创建权限
         final boolean commandAuth = sender.hasPermission("bancommandplus.command.bancommand");
         final boolean addAuth = sender.hasPermission("bancommandplus.command.bancommand.add");
         final boolean removeAuth = sender.hasPermission("bancommandplus.command.bancommand.remove");
