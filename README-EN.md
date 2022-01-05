@@ -51,6 +51,8 @@ A Bungeecord plugin that blocks any command, or specific subcommands of a comman
   - List of ban commanded: bancommandplus.command.bancommand.list
   - Reload this plugin: bancommandplus.command.bancommand.reload
 - Update Log
+  - v1.2.1
+    - Fix the corresponding subcommand permission error
   - v1.2.0
     - Add subcommand `remove` Tab list recommended by Ban command
   - v1.1.0

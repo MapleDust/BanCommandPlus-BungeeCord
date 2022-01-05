@@ -22,8 +22,7 @@ public class BanCommand extends Command implements TabExecutor {
     public static String command() {
         LoadConfig loadConfig = new LoadConfig();
         // 获取配置文件中设置的主命令
-        String command = loadConfig.getMainCommand();
-        return command;
+        return loadConfig.getMainCommand();
     }
 
     @Override
@@ -33,14 +32,14 @@ public class BanCommand extends Command implements TabExecutor {
         // 在玩家输入内容长度为1时
         if (args.length == 0) {
             list.add(command());
-        //当玩家输入的长度为1时
+            //当玩家输入的长度为1时
         } else if (args.length == 1) {
             //将子指令推荐给玩家
             list.add("add");
             list.add("remove");
             list.add("reload");
             list.add("list");
-        //当玩家输入的指令的长度为2时，并且是remove时
+            //当玩家输入的指令的长度为2时，并且是remove时
         } else if (args.length == 2 && args[0].equals("remove")) {
             //获取被Ban指令的列表
             LoadConfig loadConfig = new LoadConfig();
@@ -66,9 +65,9 @@ public class BanCommand extends Command implements TabExecutor {
                 // 判断权限都没有则警告
                 if (!addAuth && !commandAuth) {
                     sender.sendMessage(new ComponentBuilder("§8[§6BanCommandPlus§8]§4你没有使用该命令的权限！").create());
-                } else if ((removeAuth || commandAuth) && args.length > 1) {
-                    CommandHandler.addBannedCommand(args, sender);
                     // 有权限且数组长度>1(说明输入了后续内容)
+                } else if ((addAuth || commandAuth) && args.length > 1) {
+                    CommandHandler.addBannedCommand(args, sender);
                 } else {
                     // 否则说明没有输入后续内容，显示警告
                     sender.sendMessage(new ComponentBuilder("§8[§6BanCommandPlus§8]§4请输入你要屏蔽的命令！").create());
@@ -78,8 +77,8 @@ public class BanCommand extends Command implements TabExecutor {
                 // 判断权限都没有则警告
                 if (!removeAuth && !commandAuth) {
                     sender.sendMessage(new ComponentBuilder("§8[§6BanCommandPlus§8]§4你没有使用该命令的权限！").create());
-                } else if ((removeAuth || commandAuth) && args.length > 1) {
                     // 有权限且数组长度>1(说明输入了后续内容)
+                } else if ((removeAuth || commandAuth) && args.length > 1) {
                     CommandHandler.removeBannedCommand(args, sender);
                 } else {
                     // 否则说明没有输入后续内容，显示警告
@@ -90,7 +89,7 @@ public class BanCommand extends Command implements TabExecutor {
                 // 判断权限都没有则警告
                 if (!reloadAuth && !commandAuth) {
                     sender.sendMessage(new ComponentBuilder("§8[§6BanCommandPlus§8]§4你没有使用该命令的权限！").create());
-                } else if ((removeAuth || commandAuth)) {
+                } else if (reloadAuth || commandAuth) {
                     // 有权限
                     LoadConfig.loadConfig();
                     sender.sendMessage(new ComponentBuilder("§8[§6BanCommandPlus§8]§4已重新加载").create());
@@ -100,7 +99,7 @@ public class BanCommand extends Command implements TabExecutor {
                 // 判断权限都没有则警告
                 if (!listAuth && !commandAuth) {
                     sender.sendMessage(new ComponentBuilder("§8[§6BanCommandPlus§8]§4你没有使用该命令的权限！").create());
-                } else if ((listAuth || commandAuth)) {
+                } else if (listAuth || commandAuth) {
                     // 有权限
                     BannedCommandList.showBannedCommandList(sender);
                 }
