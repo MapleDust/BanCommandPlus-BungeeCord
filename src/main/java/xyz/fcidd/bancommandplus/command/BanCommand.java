@@ -40,7 +40,7 @@ public class BanCommand extends Command implements TabExecutor {
             list.add("reload");
             list.add("list");
             //当玩家输入的指令的长度为2时，并且是remove时
-        } else if (args.length == 2 && args[0].equals("remove")) {
+        } else if (args.length == 2 && args[0].equals("remove") && sender.getPermissions().contains("bancommandplus.command.bancommand.remove")) {
             //获取被Ban指令的列表
             LoadConfig loadConfig = new LoadConfig();
             List<?> banCommands = loadConfig.getBanCommand();
@@ -59,7 +59,7 @@ public class BanCommand extends Command implements TabExecutor {
         final boolean addAuth = sender.hasPermission("bancommandplus.command.bancommand.add");
         final boolean removeAuth = sender.hasPermission("bancommandplus.command.bancommand.remove");
         final boolean reloadAuth = sender.hasPermission("bancommandplus.command.bancommand.reload");
-        final boolean listAuth = sender.hasPermission("bancommandplus.command.bancommand.listAuth");
+        final boolean listAuth = sender.hasPermission("bancommandplus.command.bancommand.list");
         switch (args[0]) {
             case "add":
                 // 判断权限都没有则警告

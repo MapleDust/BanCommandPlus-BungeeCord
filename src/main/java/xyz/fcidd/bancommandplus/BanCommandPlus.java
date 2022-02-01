@@ -17,6 +17,6 @@ public class BanCommandPlus extends Plugin {
         ProxyServer.getInstance().getPluginManager().registerCommand(this, new BanCommand());
         // 监听器
         getProxy().getPluginManager().registerListener(this,new Events());
-        System.out.println("§2[BanCommandPlus]加载已完成");
+        getLogger().info("§2加载已完成");
     }
 }
